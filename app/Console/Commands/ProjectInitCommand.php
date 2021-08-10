@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Artisan;
 
 class ProjectInitCommand extends Command
 {
@@ -11,14 +12,14 @@ class ProjectInitCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'project:init';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'project:init';
 
     /**
      * Create a new command instance.
@@ -37,6 +38,20 @@ class ProjectInitCommand extends Command
      */
     public function handle()
     {
-        return 0;
-    }
+ $string = "
+                     _            _ _                  
+     /\             (_)          | | |                 
+    /  \   __ _ _ __ _  ___ _   _| | |_ _   _ _ __ ___ 
+   / /\ \ / _` | '__| |/ __| | | | | __| | | | '__/ _ \
+  / ____ \ (_| | |  | | (__| |_| | | |_| |_| | | |  __/
+ /_/    \_\__, |_|  |_|\___|\__,_|_|\__|\__,_|_|  \___|
+           __/ |                                       
+          |___/                                        
+";
+ $this->info($string);
+ Artisan::call('migrate:fresh', array('--seed' => true));
+ $this->info(Artisan::output());
+ Artisan::call('module:seed');
+ $this->info(Artisan::output());
+ }
 }
