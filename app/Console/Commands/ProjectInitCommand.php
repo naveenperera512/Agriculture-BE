@@ -19,7 +19,7 @@ class ProjectInitCommand extends Command
      *
      * @var string
      */
-    protected $description = 'project:init';
+    protected $description = 'Command description';
 
     /**
      * Create a new command instance.

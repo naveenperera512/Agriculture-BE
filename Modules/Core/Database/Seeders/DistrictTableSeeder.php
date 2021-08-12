@@ -5,7 +5,7 @@ namespace Modules\Core\Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
-class CoreDatabaseSeeder extends Seeder
+class DistrictTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,8 +15,7 @@ class CoreDatabaseSeeder extends Seeder
     public function run()
     {
         Model::unguard();
-        $this->call(CategoryTableSeeder::class);
-        $this->call(FormTableSeeder::class);
-        $this->call(UserTableSeeder::class);
+
+        // $this->call("OthersTableSeeder");
     }
 }

@@ -4,8 +4,10 @@ namespace Modules\Core\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Core\Entities\Category;
+use Modules\Core\Entities\CategorySubcategory;
 
-class CoreDatabaseSeeder extends Seeder
+class CategoryTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,8 +17,7 @@ class CoreDatabaseSeeder extends Seeder
     public function run()
     {
         Model::unguard();
-        $this->call(CategoryTableSeeder::class);
-        $this->call(FormTableSeeder::class);
-        $this->call(UserTableSeeder::class);
+
+        
     }
 }
