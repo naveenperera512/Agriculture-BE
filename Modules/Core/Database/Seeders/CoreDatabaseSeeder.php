@@ -4,6 +4,7 @@ namespace Modules\Core\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Core\Entities\Advertisement;
 
 class CoreDatabaseSeeder extends Seeder
 {
@@ -15,8 +16,11 @@ class CoreDatabaseSeeder extends Seeder
     public function run()
     {
         Model::unguard();
-        $this->call(CategoryTableSeeder::class);
-        $this->call(FormTableSeeder::class);
-        $this->call(UserTableSeeder::class);
+        $this->call([
+            UserTableSeeder::class,
+            CategoryTableSeeder::class,
+            AdvertisementTableSeeder::class,
+            UserFavoriteAdvertisementTableSeeder::class,
+        ]);
     }
 }

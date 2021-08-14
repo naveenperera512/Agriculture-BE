@@ -5,14 +5,14 @@ namespace Modules\Core\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Form extends Model
+class UserFavoriteAdvertisement extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
-    
+    protected $fillable = ['user_id', 'advertisement_id'];
+
     protected static function newFactory()
     {
-        return \Modules\Core\Database\factories\FormFactory::new();
+        return \Modules\Core\Database\factories\UserFavoriteAdvertisementFactory::new();
     }
 }

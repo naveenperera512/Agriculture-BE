@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFormElementsTable extends Migration
+class CreateAdvertisementPhotosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateFormElementsTable extends Migration
      */
     public function up()
     {
-        Schema::create('form_elements', function (Blueprint $table) {
+        Schema::create('advertisement_photos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('form_id')->references('id')->on('forms');
-            $table->string('type');
-            $table->string('title');
-            $table->string('placeholder');
-            $table->json('date');
+            $table->foreignId('advertisement_id')->references('id')->on('advertisements');
+            $table->string('key');
+            $table->string('path');
+            $table->float('size');
+            $table->string('file_type');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateFormElementsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('form_elements');
+        Schema::dropIfExists('advertisement_photos');
     }
 }
